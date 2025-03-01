@@ -22,7 +22,9 @@ function SearchResults({ decks, onClearDecks }: DeckProps) {
     const handleSelectDeck = async (topicName: string) => {
         try {
             const response = await fetch(
-                `${apiUrl}/get-cards?topicName=${encodeURIComponent(topicName)}`
+                `https://mintflow-backend.onrender.com/get-cards?topicName=${encodeURIComponent(
+                    topicName
+                )}`
             );
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

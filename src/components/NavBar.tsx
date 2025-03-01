@@ -22,7 +22,7 @@ function NavBar() {
         const fetchDecks = async () => {
             try {
                 const response = await fetch(
-                    `${apiUrl}/search-decks?query=${encodeURIComponent(
+                    `https://mintflow-backend.onrender.com/search-decks?query=${encodeURIComponent(
                         searchQuery
                     )}`
                 );
