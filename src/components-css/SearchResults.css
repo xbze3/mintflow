@@ -1,0 +1,9 @@
+.searchItem:hover {
+    cursor: pointer;
+    background-color: rgb(235, 235, 235);
+}
+
+.searchHeading {
+    color: rgb(0, 185, 185);
+    text-decoration-line: underline;
+}

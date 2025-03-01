@@ -1,0 +1,7 @@
+#cardSection {
+    background-color: rgb(0, 185, 185);
+    width: 100vw;
+    height: 538px;
+    display: flex;
+    justify-content: center;
+}
