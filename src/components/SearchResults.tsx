@@ -17,7 +17,7 @@ interface DeckProps {
 
 function SearchResults({ decks, onClearDecks }: DeckProps) {
     const { setCardData } = useCardData();
-    const apiUrl = process.env.REACT_APP_API_URL;
+    // const apiUrl = process.env.REACT_APP_API_URL;
 
     const handleSelectDeck = async (topicName: string) => {
         try {

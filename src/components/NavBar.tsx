@@ -11,7 +11,7 @@ import { useState, useEffect } from "react";
 function NavBar() {
     const [searchQuery, setSearchQuery] = useState("");
     const [decks, setDecks] = useState([]);
-    const apiUrl = process.env.REACT_APP_API_URL;
+    // const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         if (searchQuery.trim() === "") {
