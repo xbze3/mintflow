@@ -1,7 +1,11 @@
 #cardSection {
     background-color: rgb(0, 185, 185);
-    width: 100vw;
-    height: 538px;
+    width: 100%;
+    height: calc(100vh - 71px);
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
 }
