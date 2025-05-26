@@ -6,38 +6,33 @@ import Navbar from "react-bootstrap/Navbar";
 import logo from "../assets/mintflowBanner.png";
 import SearchResults from "./SearchResults";
 import "../components-css/NavBar.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function NavBar() {
     const [searchQuery, setSearchQuery] = useState("");
     const [decks, setDecks] = useState([]);
     // const apiUrl = process.env.REACT_APP_API_URL;
 
-    useEffect(() => {
+    const fetchDecks = async () => {
         if (searchQuery.trim() === "") {
-            setDecks([]);
             return;
         }
 
-        const fetchDecks = async () => {
-            try {
-                const response = await fetch(
-                    `https://mintflow-backend.onrender.com/search-decks?query=${encodeURIComponent(
-                        searchQuery
-                    )}`
-                );
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                setDecks(data);
-            } catch (error) {
-                console.error("Error fetching decks:", error);
+        try {
+            const response = await fetch(
+                `https://mintflow-backend.onrender.com/search-decks?query=${encodeURIComponent(
+                    searchQuery
+                )}`
+            );
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        };
-
-        fetchDecks();
-    }, [searchQuery]);
+            const data = await response.json();
+            setDecks(data);
+        } catch (error) {
+            console.error("Error fetching decks:", error);
+        }
+    };
 
     const handleSearchSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -76,7 +71,12 @@ function NavBar() {
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
-                            <Button variant="outline-success">Search</Button>
+                            <Button
+                                variant="outline-success"
+                                onClick={fetchDecks}
+                            >
+                                Search
+                            </Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
