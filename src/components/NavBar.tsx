@@ -15,9 +15,9 @@ function NavBar() {
 
     const fetchDecks = async () => {
         if (searchQuery.trim() === "") {
+            setDecks([]);
             return;
         }
-
         try {
             const response = await fetch(
                 `https://mintflow-backend.onrender.com/search-decks?query=${encodeURIComponent(
@@ -40,6 +40,7 @@ function NavBar() {
 
     const clearDecks = () => {
         setSearchQuery("");
+        setDecks([]);
     };
 
     return (
