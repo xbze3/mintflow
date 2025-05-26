@@ -24,7 +24,7 @@ function Card() {
                     <h3>Select a Deck</h3>
                 </div>
             ) : (
-                <Carousel id="carousel">
+                <Carousel id="carousel" interval={null}>
                     {cardData.map((card) => (
                         <Carousel.Item
                             id="item"
